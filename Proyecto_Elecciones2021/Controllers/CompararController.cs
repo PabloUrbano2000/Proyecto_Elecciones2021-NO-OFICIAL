@@ -225,6 +225,7 @@ namespace Proyecto_Elecciones2021.Controllers
             return temporal.ToList();
         }
 
+
         IEnumerable<EstudiosUniversitariosHV> ObtenerEstudiosUniversitariosHV(int id)
         {
             var temporal = new List<EstudiosUniversitariosHV>();
