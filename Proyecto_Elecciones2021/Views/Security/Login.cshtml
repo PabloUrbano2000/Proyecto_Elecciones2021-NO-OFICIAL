@@ -1,0 +1,140 @@
+﻿@model Proyecto_Elecciones2021.Models.Logueo
+@using CaptchaMvc.HtmlHelpers
+
+@{
+    Layout = "";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERÚ DECIDE 2021</title>
+
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css">-->
+    <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/estilos.css">
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="body" style="background-image:url('../../Imagenes/logos/colllage niebla OFICIAL.png');">
+        <div class="login d-flex flex-column flex-md-row">
+
+
+            <div class="login-i ">
+
+                <h1 class="d-sm-none">Elecciones Generales 2021</h1>
+
+                <div class="login-organizaciones flex-column flex-md-row ">
+                    <div>
+                        <img class="login-imagen-jne" src="~/Imagenes/logos/jne.png" alt="Jurado Nacional de Elecciones" />
+                    </div>
+                    <div class="login-div-medio">
+                        <img class="login-imagen-gob" src="~/Imagenes/logos/gob.png" alt="Gobierno del Perú" />
+                    </div>
+                    <div>
+                        <img class="login-imagen-onpe" src="~/Imagenes/logos/onpe.png" alt="Oficina Nacional de Procesos Electorales" />
+                    </div>
+                </div>
+
+                <img class="login-img-elecciones" src="~/Imagenes/logos/eleccion2021.png" alt="Elecciones Generales 2021" />
+            </div>
+
+
+            <div class="login-d">
+
+                <div class=" login-header">
+
+
+                    <h1>Elecciones Generales 2021</h1>
+                    <p>
+                        <strong>
+                            Ciudadanos y ciudadanas, sean todos bienvenidos a
+                            nuestra renovada web en donde podrán realizar sus votaciones. Aseguramos la completa seguridad y confidencialidad de sus votos.
+                        </strong>
+                    </p>
+                </div>
+
+
+                <div class="login-formulario" style="background-color:rgba(16, 16, 16, 0.70)">
+                    @using (Html.BeginForm("Login", "Security", null, FormMethod.Post, htmlAttributes: new { @enctype = "multipart/form-data", @id = "fromCaptcha" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                        <div class="col-md-12 form-group">
+                            <span>Introduzca su DNI</span>
+                            @Html.EditorFor(model => model.dni, new { htmlAttributes = new { @class = "form-control div-centrar" } })
+                            @Html.ValidationMessageFor(model => model.dni, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <span>Fecha de Nacimiento</span>
+                            @Html.EditorFor(model => model.fechaNacimiento, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                            @Html.ValidationMessageFor(model => model.fechaNacimiento, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="col-md-12 pb-1">
+                            <span>Fecha de Emisión</span>
+                            @Html.EditorFor(model => model.fechaEmision, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                            @Html.ValidationMessageFor(model => model.fechaEmision, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="col-md-12 mostrar">
+                            <a href="#">¿Dónde está la fecha de emisión?</a>
+                        </div>
+
+                        <div class="col-md-12 tool">
+                            <p class="tooltiptext texto">La Fecha de emisión se ubica en la parte frontal de su DNI.</p>
+                            <img class="dni tooltiptext" src="~/Imagenes/logos/dni-fechaemi.png" alt="DNI" />
+                        </div>
+
+                        <div class="col-12 form-group captcha">
+
+                            @Html.Captcha(refreshText: "Pruebe otro", inputText: "Ingrese captcha", length: 5)
+                            <div class="text-danger login-mensaje">@ViewBag.ErrorMessage</div>
+                        </div>
+                        <div class="login-mensaje text-danger">
+                            @ViewBag.Message
+                        </div>
+
+                        <div class="col-md-12 form-group d-flex justify-content-center ">
+                            <input type="submit" value="Ingresar" class="btn btn-verde col-xs-10 col-md-8" />
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script src="~/Scripts/general.js"></script>
+    <script>
+        window.watsonAssistantChatOptions = {
+            integrationID: "51558091-3def-47bb-8c06-97a7b87eb06b", // The ID of this integration.
+            region: "us-south", // The region your integration is hosted in.
+            serviceInstanceID: "b33c09ab-4f07-4ecf-addf-47ce9ff72415", // The ID of your service instance.
+            onLoad: function (instance) { instance.render(); }
+        };
+        setTimeout(function () {
+            const t = document.createElement('script');
+            t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+            document.head.appendChild(t);
+        });
+    </script>
+</body>
+</html>
+
+
+
