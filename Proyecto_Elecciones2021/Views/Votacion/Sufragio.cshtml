@@ -36,7 +36,7 @@
 
 </div>
 
-@using (Html.BeginForm("Sufragio", "Votacion", FormMethod.Post))
+@using (Html.BeginForm("Sufragio", "Votacion", FormMethod.Post, new { @class ="formulario"} ))
 {
     @Html.AntiForgeryToken()
        
@@ -253,7 +253,7 @@
     </div>
 
     <div class="col-12 m-2 mb-4">
-        <button id="enviar" class="btn btn-success col-3 enviar-sufragio" >ENVIAR VOTO</button>
+        <button id="enviar" class="btn btn-success col-8 col-md-4 enviar-sufragio" >ENVIAR VOTO</button>
     </div>
 }
 

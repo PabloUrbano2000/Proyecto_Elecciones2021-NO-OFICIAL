@@ -38,7 +38,7 @@
             /*document width debes restarle 16px al hacer la medida por el scrollbar*/
 
             $('.home').click(function () {
-                if ($(document).width() < 751) {
+                if ($(document).width() < 1008) {
                     if ($('.contenedor-menu .menu').css('display') == 'block') {
                         $('.contenedor-menu .menu').slideToggle(800);
                     };
@@ -47,11 +47,11 @@
 
 
             $(window).resize(function () {
-                if ($(document).width() >= 751) {
+                if ($(document).width() >= 1008) {
                     $('.contenedor-menu .btn-menu').css({ 'display': 'none' });
                     $('.contenedor-menu .menu').css({ 'display': 'block' });
                 }
-                if ($(document).width() < 751) {
+                if ($(document).width() < 1008) {
                     $('.contenedor-menu .btn-menu').css({ 'display': 'block' });
                     $('.contenedor-menu .menu').css({ 'display': 'none' });
                 }
