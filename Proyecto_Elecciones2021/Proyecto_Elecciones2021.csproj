@@ -214,6 +214,7 @@
     <Content Include="Imagenes\logos\eleccion2021.png" />
     <Content Include="Imagenes\logos\elecciones-autoridades.png" />
     <Content Include="Imagenes\logos\fondo.png" />
+    <Content Include="Imagenes\logos\fondoLogin.jpg" />
     <Content Include="Imagenes\logos\gob.png" />
     <Content Include="Imagenes\logos\gobierno.png" />
     <Content Include="Imagenes\logos\jne.png" />
