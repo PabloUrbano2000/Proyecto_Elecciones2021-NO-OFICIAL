@@ -71,6 +71,7 @@ body {
     height: 100%;
     width: 100%;
     min-height: 100vh;
+    max-width:1450px;
 }
 
 
@@ -1733,11 +1734,11 @@ img.gob-peru, img.onpe {
 @media screen and (min-width: 768px) {
 
     .sidebar {
-        width: 30%;
+        width: 23%;
     }
 
     .home {
-        width: 70%;
+        width: 77%;
     }
 
 
